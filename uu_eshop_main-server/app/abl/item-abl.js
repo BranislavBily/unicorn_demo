@@ -44,7 +44,7 @@ class ItemAbl {
     return await this.itemDao.update(awid, dtoIn);
   }
   async removeItem(awid, dtoIn) {
-    return await this.itemDao.remove(awid, dtoIn)
+    return this.itemDao.remove(awid, dtoIn);
   }
 }
 
