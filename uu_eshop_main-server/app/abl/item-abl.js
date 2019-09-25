@@ -31,13 +31,17 @@ class ItemAbl {
     await this.itemDao.create(dtoIn);
 
     return {
-      ...dtoIn,
+      ...dtoIn
       // uuAppErrorMap
     };
   }
 
   async findItem(awid, dtoIn) {
     return await this.itemDao.get(awid, dtoIn.id);
+  }
+
+  async findItems(awid) {
+    return await this.itemDao.getItems(awid);
   }
 
   async updateItem(awid, dtoIn) {

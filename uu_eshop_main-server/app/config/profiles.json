@@ -13,6 +13,7 @@
       "init": ["AwidOwner"],
       "item/create": ["AwidOwner"],
       "item/find": ["AwidOwner"],
+      "item/findItems": ["AwidOwner"],
       "item/update": ["AwidOwner"],
       "item/remove": ["AwidOwner"],
       "defaultUve": ["Public"]

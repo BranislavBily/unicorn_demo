@@ -18,6 +18,13 @@ class ItemMongo extends UuObjectDao {
     return await super.findOne(filter)
   }
 
+  async getItems(awid) {
+    let filter = {
+      awid: awid
+    };
+    return super.find(filter);
+  }
+
   async update(awid, dtoIn) {
     let filter = {
       awid: awid,
