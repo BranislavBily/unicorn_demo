@@ -12,6 +12,7 @@
     "useCaseMap": {
       "init": ["AwidOwner"],
       "item/create": ["AwidOwner"],
+      "item/find": ["AwidOwner"],
       "defaultUve": ["Public"]
     }
   }

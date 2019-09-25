@@ -1,3 +1,5 @@
+/*eslint-disable*/
+
 const createItemDtoInType = shape( {
   name: string().isRequired(),
   price: integer().isRequired(),

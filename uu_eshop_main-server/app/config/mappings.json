@@ -10,6 +10,11 @@
         "realization": "api/controllers/ItemController.createItem",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "item/find": {
+        "realization": "api/controllers/ItemController.findItem",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

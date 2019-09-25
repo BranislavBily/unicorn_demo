@@ -5,6 +5,9 @@ class ItemController {
   createItem(ucEnv) {
     return ItemAbl.createItem(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
+  findItem(ucEnv) {
+    return ItemAbl.findItem(ucEnv.getUri().getAwid, ucEnv.getDtoIn());
+  }
 }
 
 module.exports = new ItemController();

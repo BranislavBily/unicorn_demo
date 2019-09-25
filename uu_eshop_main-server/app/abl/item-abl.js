@@ -1,14 +1,14 @@
 "use strict";
-const {Validator} = require("uu_appg01_server").Validation;
-const {DaoFactory, ObjectStoreError} = require("uu_appg01_server").ObjectStore;
-const {ValidationHelper} = require("uu_appg01_server").AppServer;
-const {SysProfileModel} = require("uu_appg01_server").Workspace;
+const { Validator } = require("uu_appg01_server").Validation;
+const { DaoFactory, ObjectStoreError } = require("uu_appg01_server").ObjectStore;
+const { ValidationHelper } = require("uu_appg01_server").AppServer;
+const { SysProfileModel } = require("uu_appg01_server").Workspace;
 const Errors = require("../api/errors/eshop-main-error.js");
-const path = require("path")
+const path = require("path");
 
 const WARNINGS = {
   createItemUnsupportedKeys: {
-    code: 'unsupportedKeys'
+    code: "unsupportedKeys"
   }
 };
 
@@ -19,20 +19,25 @@ class ItemAbl {
   }
 
   async createItem(awid, dtoIn) {
-    // HDS 1
-    // let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
-    // // A1, A2
-    // let uuAppErrorMap = ValidationHelper.processValidationResult(
-    //   dtoIn,
-    //   validationResult,
-    //   WARNINGS.createItemUnsupportedKeys.code,
-    //   // Errors.Init.InvalidDtoIn
-    // );
+    let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
+    // A1, A2
+    let uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      WARNINGS.createItemUnsupportedKeys.code
+      // Errors.CreateProfessional.InvalidDtoIn
+    );
+
     await this.itemDao.create(dtoIn);
 
     return {
-      ...dtoIn
-    }
+      ...dtoIn,
+      uuAppErrorMap
+    };
+  }
+
+  async findItem(awid, dtoIn) {
+    return await this.itemDao.get(awid, dtoIn.id);
   }
 }
 
