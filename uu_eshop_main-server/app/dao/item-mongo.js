@@ -31,9 +31,9 @@ class ItemMongo extends UuObjectDao {
     return await super.findOneAndUpdate(filter, uuObject, "NONE");
   }
 
-  async remove(uuObject) {
+  async remove(awid, uuObject) {
     let filter = {
-      awid: uuObject.awid,
+      awid: awid,
       id: uuObject.id
     };
     return await super.deleteOne(filter);

@@ -43,6 +43,9 @@ class ItemAbl {
   async updateItem(awid, dtoIn) {
     return await this.itemDao.update(awid, dtoIn);
   }
+  async removeItem(awid, dtoIn) {
+    return await this.itemDao.remove(awid, dtoIn)
+  }
 }
 
 module.exports = new ItemAbl();

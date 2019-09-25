@@ -20,6 +20,11 @@
         "realization": "api/controllers/ItemController.updateItem",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "item/remove": {
+        "realization": "api/controllers/ItemController.removeItem",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }
