@@ -1,0 +1,16 @@
+{
+  "{vendor}-{uuApp}-{uuSubApp}": {
+    "useCaseMap": {
+      "init": {
+        "realization": "api/controllers/EshopMainController.init",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "create/item": {
+        "realization": "api/controllers/ItemController.createItem",
+        "httpMethod": "POST",
+        "type": "CMD"
+      }
+    }
+  }
+}
