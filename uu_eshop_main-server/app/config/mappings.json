@@ -6,7 +6,7 @@
         "httpMethod": "POST",
         "type": "CMD"
       },
-      "create/item": {
+      "item/create": {
         "realization": "api/controllers/ItemController.createItem",
         "httpMethod": "POST",
         "type": "CMD"

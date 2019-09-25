@@ -6,6 +6,9 @@
       "schemaMap": {
         "eshopMain": {
           "realization": "dao/EshopMainMongo"
+        },
+        "item": {
+          "realization": "dao/ItemMongo"
         }
       }
     }

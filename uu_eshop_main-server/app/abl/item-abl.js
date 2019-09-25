@@ -15,22 +15,23 @@ const WARNINGS = {
 class ItemAbl {
   constructor() {
     this.validator = new Validator(path.join(__dirname, "../api", "validation_types", "item-types.js"));
+    this.itemDao = DaoFactory.getDao("item");
   }
 
   async createItem(awid, dtoIn) {
     // HDS 1
-    let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
-    // A1, A2
-    let uuAppErrorMap = ValidationHelper.processValidationResult(
-      dtoIn,
-      validationResult,
-      WARNINGS.createItemUnsupportedKeys.code,
-      // Errors.Init.InvalidDtoIn
-    );
+    // let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
+    // // A1, A2
+    // let uuAppErrorMap = ValidationHelper.processValidationResult(
+    //   dtoIn,
+    //   validationResult,
+    //   WARNINGS.createItemUnsupportedKeys.code,
+    //   // Errors.Init.InvalidDtoIn
+    // );
+    await this.itemDao.create(dtoIn);
 
     return {
-      dtoIn,
-      uuAppErrorMap
+      ...dtoIn
     }
   }
 }
