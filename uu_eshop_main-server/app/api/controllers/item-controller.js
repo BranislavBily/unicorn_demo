@@ -8,6 +8,9 @@ class ItemController {
   findItem(ucEnv) {
     return ItemAbl.findItem(ucEnv.getUri().getAwid, ucEnv.getDtoIn());
   }
+  updateItem(ucEnv) {
+    return ItemAbl.updateItem(ucEnv.getUri().getAwid, ucEnv.getDtoIn(), ucEnv);
+  }
 }
 
 module.exports = new ItemController();

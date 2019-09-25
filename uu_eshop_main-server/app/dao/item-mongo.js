@@ -18,10 +18,15 @@ class ItemMongo extends UuObjectDao {
     return await super.findOne(filter)
   }
 
-  async update(uuObject) {
+  async update(awid, dtoIn) {
     let filter = {
-      awid: uuObject.awid,
-      id: uuObject.id
+      awid: awid,
+      id: dtoIn.id
+    };
+    let uuObject = {
+      name: dtoIn.updatedItem.name,
+      price: dtoIn.updatedItem.price,
+      description: dtoIn.updatedItem.description
     };
     return await super.findOneAndUpdate(filter, uuObject, "NONE");
   }

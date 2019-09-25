@@ -19,25 +19,29 @@ class ItemAbl {
   }
 
   async createItem(awid, dtoIn) {
-    let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
-    // A1, A2
-    let uuAppErrorMap = ValidationHelper.processValidationResult(
-      dtoIn,
-      validationResult,
-      WARNINGS.createItemUnsupportedKeys.code
-      // Errors.CreateProfessional.InvalidDtoIn
-    );
+    // let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
+    // // A1, A2
+    // let uuAppErrorMap = ValidationHelper.processValidationResult(
+    //   dtoIn,
+    //   validationResult,
+    //   WARNINGS.createItemUnsupportedKeys.code
+    //   // Errors.CreateProfessional.InvalidDtoIn
+    // );
 
     await this.itemDao.create(dtoIn);
 
     return {
       ...dtoIn,
-      uuAppErrorMap
+      // uuAppErrorMap
     };
   }
 
   async findItem(awid, dtoIn) {
     return await this.itemDao.get(awid, dtoIn.id);
+  }
+
+  async updateItem(awid, dtoIn) {
+    return await this.itemDao.update(awid, dtoIn);
   }
 }
 

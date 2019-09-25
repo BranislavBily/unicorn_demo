@@ -15,6 +15,11 @@
         "realization": "api/controllers/ItemController.findItem",
         "httpMethod": "GET",
         "type": "CMD"
+      },
+      "item/update": {
+        "realization": "api/controllers/ItemController.updateItem",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }
